@@ -1,0 +1,80 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="wrapper">
+	<div class="container">	<center><br><p>Developed by <a href="https://www.linkedin.com/in/solaiyappan-shanmuganathan-2a89121b3/">Solaiyappan Shanmuganathan</a></p>
+		<h1 onclick="swapmode()" >Calculator
+            <i class="fas fa-adjust"></i>
+        </h1>
+        <table class="form">
+        <tr class="numin">
+            <td colspan="5">
+                <input type="text" id="numin">
+            </td>
+        </tr>
+        <tr class="button">
+            <td onclick="append('7')">7</td>
+            <td onclick="append('8')">8</td>
+            <td onclick="append('9')">9</td>
+            <td onclick="back()">
+                <i class="fas fa-backspace"></i>
+            </td>
+            <td onclick="clearAll()">C</td>
+        </tr>
+        <tr class="button">
+            <td onclick="append('4')">4</td>
+            <td onclick="append('5')">5</td>
+            <td onclick="append('6')">6</td>
+            <td onclick="appendSpl('-')">
+                <i class="fas fa-minus"></i>
+            </td>
+            <td onclick="appendSpl('*')">
+                <i class="fas fa-times"></i>
+            </td>
+        </tr>
+        <tr class="button">
+            <td onclick="append('1')">1</td>
+            <td onclick="append('2')">2</td>
+            <td onclick="append('3')">3</td>
+            <td onclick="appendSpl('+')">
+                <i class="fas fa-plus"></i>
+            </td>
+            <td onclick="appendSpl('/')">
+                <i class="fas fa-divide"></i>
+            </td>
+        </tr>
+        <tr class="button">
+            <td onclick="append('00')">00</td>
+            <td onclick="append('0')">0</td>
+            <td onclick="append('.')">.</td>
+            <td id="solve" onclick="solve()" colspan="2">
+                <i class="fas fa-equals"></i>
+            </td>
+        </tr>
+	</table>
+    <br>
+    <div id="result"> </div><br>
+    </center>
+	</div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+<script src="backend.js"></script>
