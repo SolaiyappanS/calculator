@@ -6,14 +6,13 @@ body {
   --primary-color: #ffffff;
   --hover-background: #ffffff33;
 }
-.container{
+.container {
   color: var(--primary-color);
-  font-weight: bold;
 }
 table {
   border: 1px solid #ffffff22;
 }
-.numin, h1{
+.numin, h1 {
   outline: 0;
   border: 0px solid #ffffff12;
   background-color: #ffffff00;
@@ -27,22 +26,22 @@ table {
   transition: 300ms;
   font-weight: bold;
 }
-.numin div{
+.numin div {
   font-size: 35px;
   padding-top: 25;
   padding-right: 10;
 }
-h1{
+h1 {
   height: fit-content;
   cursor: pointer;
   text-align: center;
   font-size: medium;
   width: 265px;
 }
-h1 i{
+h1 i {
   font-size: 40px;
 }
-.button td{
+.button td {
   outline: 0;
   border: 1px solid #ffffff22;
   padding: 10px;
@@ -56,6 +55,9 @@ h1 i{
   text-align: center;
   cursor: pointer;
 }
+.button td i {
+  font-size: 25px;
+}
 #solve {
   width : 100px;
 }
@@ -64,37 +66,37 @@ h1 i{
   color: var(--placeholder-focus);
   --placeholder-color: var(--placeholder-focus);
 }
-.numin:hover input{
+.numin:hover input {
   color: var(--placeholder-focus);
   transition: 300ms;
 }
-p a{
+p a {
   color: var(--primary-color);
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 2px;
 }
-p a:hover{
+p a:hover {
   background-color: var(--hover-background);
   color: var(--placeholder-focus);
   text-decoration: none;
   transition: 300ms;
 }
-.red{
+.red {
   --accent-color: #de5b6d;
   --gradient-color: #fe676e;
   --placeholder-focus: #ffffff;
   --primary-color: #ffffffdd;
   --hover-background: #ffffff44;
 }
-.green{
+.green {
   --accent-color: #267d49;
   --gradient-color: #43975d;
   --placeholder-focus: #ffffff;
   --primary-color: #ffffffdd;
   --hover-background: #ffffff44;
 }
-.blue{
+.blue {
   --accent-color: #004e9a;
   --gradient-color: #428cd4;
   --placeholder-focus: #ffffff;
