@@ -1,7 +1,7 @@
 body {
   background: linear-gradient(to bottom right, var(--accent-color) 0%, var(--gradient-color) 100%);
-  --accent-color: #121212;
-  --gradient-color: #272727;
+  --accent-color: #2d2d2d;
+  --gradient-color: #303030;
   --placeholder-focus: #ffffff;
   --primary-color: #ffffff;
   --hover-background: #ffffff33;
@@ -81,15 +81,22 @@ p a:hover{
   transition: 300ms;
 }
 .red{
-  --accent-color: #f3545c;
-  --gradient-color: #ee4b5b;
+  --accent-color: #de5b6d;
+  --gradient-color: #fe676e;
+  --placeholder-focus: #ffffff;
+  --primary-color: #ffffffdd;
+  --hover-background: #ffffff44;
+}
+.green{
+  --accent-color: #267d49;
+  --gradient-color: #43975d;
   --placeholder-focus: #ffffff;
   --primary-color: #ffffffdd;
   --hover-background: #ffffff44;
 }
 .blue{
-  --accent-color: #055cc7;
-  --gradient-color: #0552bd;
+  --accent-color: #004e9a;
+  --gradient-color: #428cd4;
   --placeholder-focus: #ffffff;
   --primary-color: #ffffffdd;
   --hover-background: #ffffff55;

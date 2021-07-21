@@ -12,14 +12,19 @@ function isDigit(val) {
 
 function swapmode() {
     count++;
-    if(count%3==1)
-        element.classList.toggle("red");
-    else if(count%3==2) {
-        element.classList.toggle("red");
-        element.classList.toggle("blue");
+    switch (count%4) {
+        case 1:
+            element.classList = "red";
+            break;
+        case 2:
+            element.classList = "green";
+            break;
+        case 3:
+            element.classList = "blue";
+            break;
+        default:
+            element.classList = "regular";
     }
-    else
-        element.classList.toggle("blue");
 }
 
 function append(val) {
@@ -38,7 +43,7 @@ function append(val) {
             document.getElementById("numin").innerHTML = val;
         isResult = false;
     }
-    else if(document.getElementById("numin").innerHTML.length <10) {
+    else if(document.getElementById("numin").innerHTML.length <12) {
         if(val == '.')
             if(!isDot) {
                 isDot = true;
@@ -97,7 +102,7 @@ function solve() {
     var numin = document.getElementById("numin").innerHTML;
     if(!isDigit(numin.charAt(numin.length-1)))
     numin = numin.slice(0,-1);
-    document.getElementById("numin").innerHTML = round(eval(numin),3);
+    document.getElementById("numin").innerHTML = round(eval(numin),5);
     isChar = false;
     isResult = true;
 }
