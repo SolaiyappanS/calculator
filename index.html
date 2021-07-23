@@ -15,13 +15,11 @@
   <body>
     <div class="wrapper">
 	<div class="container">	<center><br><p>Developed by <a href="https://www.linkedin.com/in/solaiyappan-shanmuganathan-2a89121b3/">Solaiyappan Shanmuganathan</a></p>
-		<h1 onclick="swapmode()" >Calculator
-            <i class="fas fa-adjust"></i>
-        </h1>
+		<h1>Calculator</h1>
         <table class="form">
         <tr class="numin">
             <td colspan="5">
-                <div id="numin"></div>
+                <div id="numin">0</div>
             </td>
         </tr>
         <tr class="button">
@@ -31,7 +29,7 @@
             <td onclick="back()">
                 <i class="fas fa-backspace"></i>
             </td>
-            <td onclick="clearAll()">C</td>
+            <td onclick="clearAll()"><b>C</b></td>
         </tr>
         <tr class="button">
             <td onclick="append('4')">4</td>
@@ -56,7 +54,9 @@
             </td>
         </tr>
         <tr class="button">
-            <td onclick="append('00')">00</td>
+            <td onclick="swapmode()" title="Change Theme">
+                <i class="fas fa-adjust"></i>
+            </td>
             <td onclick="append('0')">0</td>
             <td onclick="append('.')">.</td>
             <td id="solve" onclick="solve()" colspan="2">

@@ -1,18 +1,14 @@
 var count = 0;
 var element = document.body;
-var isChar = false;
 var isDot = false;
 var isResult = false;
-
-function isDigit(val) {
-    if(val >= '0' && val <= '9')
-        return true;
-    return false;
-}
+var display = document.getElementById("numin");
+document.addEventListener('keypress', logKey);
+document.addEventListener('keydown', logKeyd);
 
 function swapmode() {
     count++;
-    switch (count%4) {
+    switch (count) {
         case 1:
             element.classList = "red";
             break;
@@ -24,59 +20,57 @@ function swapmode() {
             break;
         default:
             element.classList = "regular";
+            count = 0;
     }
 }
 
 function append(val) {
 
-    if(document.getElementById("numin").innerHTML.includes("."))
-        isDot = true;
-    else
-        isDot = false;
-    if(isChar && isDot){
-        isDot = false;
-    }
     if(isResult) {
-        if(val == ".")
-            document.getElementById("numin").innerHTML = "0.";
-        else if(val != "00")
-            document.getElementById("numin").innerHTML = val;
+        if(val == ".") {
+            display.innerHTML = "0.";
+            isDot = true;
+        }
+        else
+            display.innerHTML = val;
         isResult = false;
     }
-    else if(document.getElementById("numin").innerHTML.length <12) {
+    else if(display.innerHTML.length <12) {
         if(val == '.')
             if(!isDot) {
                 isDot = true;
-                if (isDigit(document.getElementById("numin").innerHTML.charAt(document.getElementById("numin").innerHTML.length-1)))
-                    document.getElementById("numin").innerHTML += '.';
+                if (isDigit(display.innerHTML.charAt(display.innerHTML.length-1)))
+                    display.innerHTML += '.';
                 else
-                    document.getElementById("numin").innerHTML += '0.';
+                    display.innerHTML += '0.';
             }
             else;
-        else if(document.getElementById("numin").innerHTML == '0')
-            document.getElementById("numin").innerHTML = val;
-        else if(val == "00"){
-            if(isDigit(document.getElementById("numin").innerHTML.charAt(document.getElementById("numin").innerHTML.length-1))
-            && document.getElementById("numin").innerHTML *1 != 0
-            || document.getElementById("numin").innerHTML.charAt(document.getElementById("numin").innerHTML.length-1) == ".")
-                document.getElementById("numin").innerHTML += val;
-            else
-                document.getElementById("numin").innerHTML = 0;
-        }
-        else
-        document.getElementById("numin").innerHTML += val;
+        else if(display.innerHTML == '0')
+            display.innerHTML = val;
+        else 
+            display.innerHTML += val;
     }
     else 
         alert("No more digits are allowed");
 }
 
 function appendSpl(val) {
-    var txt = document.getElementById("numin").innerHTML;
-    if(!isChar || isDigit(txt.charAt(txt.length-1))) {
+    var txt = display.innerHTML;
+    if(isDigit(txt.charAt(txt.length-1))) {
         if(txt == "")
-            document.getElementById("numin").innerHTML += "0";
-        document.getElementById("numin").innerHTML += val;
-        isChar = true;
+            display.innerHTML += "0";
+        display.innerHTML += val;
+        isDot = false;
+        isResult = false;
+    }
+    else if("+-*/".includes(txt.charAt(txt.length-1))){
+        txt = txt.slice(0,-1);
+        txt += val;
+        display.innerHTML = txt;
+    }
+    else if(txt.charAt(txt.length-1) == ".") {
+        txt += "0" + val;
+        display.innerHTML = txt;
         isDot = false;
         isResult = false;
     }
@@ -85,35 +79,38 @@ function appendSpl(val) {
 function back() {
     if(isResult) {
         isResult = false;
-        document.getElementById("numin").innerHTML = "0";
+        display.innerHTML = "0";
     }
-    var txt = document.getElementById("numin").innerHTML;
+    var txt = display.innerHTML;
     txt = txt.slice(0,-1);
-    if(txt == "") txt = "0";
-    document.getElementById("numin").innerHTML = txt;
+    if(txt == "") {
+        txt = "0";
+        isDot = false;
+    }
+    display.innerHTML = txt;
 }
 
 function clearAll() {
-    document.getElementById("numin").innerHTML = "0";
-    isChar = false;
+    display.innerHTML = "0";
+    isDot = false;
 }
  
 function solve() {
-    var numin = document.getElementById("numin").innerHTML;
+    var numin = display.innerHTML;
     if(!isDigit(numin.charAt(numin.length-1)))
     numin = numin.slice(0,-1);
-    document.getElementById("numin").innerHTML = round(eval(numin),5);
-    isChar = false;
+    display.innerHTML = round(eval(numin),5);
+    isDot = false;
     isResult = true;
 }
 
-document.addEventListener('keypress', logKey);
-document.addEventListener('keydown', logKeyd);
 function logKey(e) {
-    const key = e.key;
-    if(e.which >= 48 && e.which <= 57)
-    append(e.which-48)
+    if(e.which >= 49 && e.which <= 57)
+    append(e.which-48);
     else switch(e.which){
+        case 48:
+            append("0");
+            break;
         case 43:
             appendSpl("+");
             break;
@@ -133,16 +130,22 @@ function logKey(e) {
         case 46:
             append(".");
     }
-  }
+}
   
-  function logKeyd(e) {
+function logKeyd(e) {
     const key = e.key;
     if(key === "Backspace")
         back();
     else if(key === "Delete")
         clearAll();
-  }
+}
 
-  function round(value, decimals) {
+function round(value, decimals) {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+
+function isDigit(val) {
+    if(val >= '0' && val <= '9')
+        return true;
+    return false;
 }

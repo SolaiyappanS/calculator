@@ -2,55 +2,28 @@ body {
   background: linear-gradient(to bottom right, var(--accent-color) 0%, var(--gradient-color) 100%);
   --accent-color: #2d2d2d;
   --gradient-color: #303030;
-  --placeholder-focus: #ffffff;
   --primary-color: #ffffff;
   --hover-background: #ffffff33;
 }
 .container {
   color: var(--primary-color);
 }
-table {
-  border: 1px solid #ffffff22;
-}
-.numin, h1 {
-  outline: 0;
-  border: 0px solid #ffffff12;
-  background-color: #ffffff00;
-  width: 250px;
-  height: 70px;
-  padding: 10px;
-  padding-right: 5;
+.numin{
+  border: 1px solid #ffffff33;
   text-align: right;
   color: var(--primary-color);
-  --placeholder-color: var(--primary-color);
-  transition: 300ms;
-  font-weight: bold;
 }
 .numin div {
-  font-size: 35px;
-  padding-top: 25;
-  padding-right: 10;
-}
-h1 {
-  height: fit-content;
-  cursor: pointer;
-  text-align: center;
-  font-size: medium;
-  width: 250px;
-}
-h1 i {
   font-size: 40px;
+  padding-top: 25px;
+  padding-right: 10px;
 }
 .button td {
-  outline: 0;
-  border: 1px solid #ffffff22;
-  padding: 10px;
+  border: 1px solid #ffffff33;
   color: var(--primary-color);
-  --placeholder-color: var(--primary-color);
-  transition: 300ms;
-  font-weight: bold;
+  transition: 350ms;
   width: 50px;
-  height: 50px;
+  padding: 10px;
   font-size: 30px;
   text-align: center;
   cursor: pointer;
@@ -61,45 +34,26 @@ h1 i {
 #solve {
   width : 100px;
 }
-.numin:hover, .button td:hover, h1:hover {
+.button td:hover{
   background-color: var(--hover-background);
-  color: var(--placeholder-focus);
-  --placeholder-color: var(--placeholder-focus);
-}
-.numin:hover input {
-  color: var(--placeholder-focus);
-  transition: 300ms;
+  transition: 350ms;
 }
 p a {
   color: var(--primary-color);
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 2px;
 }
 p a:hover {
-  background-color: var(--hover-background);
-  color: var(--placeholder-focus);
-  text-decoration: none;
-  transition: 300ms;
+  color: var(--primary-color);
+  text-decoration: underline;
 }
 .red {
   --accent-color: #de5b6d;
   --gradient-color: #fe676e;
-  --placeholder-focus: #ffffff;
-  --primary-color: #ffffffdd;
-  --hover-background: #ffffff44;
 }
 .green {
   --accent-color: #267d49;
   --gradient-color: #43975d;
-  --placeholder-focus: #ffffff;
-  --primary-color: #ffffffdd;
-  --hover-background: #ffffff44;
 }
 .blue {
   --accent-color: #004e9a;
   --gradient-color: #428cd4;
-  --placeholder-focus: #ffffff;
-  --primary-color: #ffffffdd;
-  --hover-background: #ffffff55;
 }
