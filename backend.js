@@ -3,6 +3,7 @@ var element = document.body;
 var isDot = false;
 var isZero = false;
 var isResult = false;
+var openB = 0;
 var display = document.getElementById("numin");
 document.addEventListener('keypress', logKey);
 document.addEventListener('keydown', logKeyd);
@@ -66,7 +67,7 @@ function append(val) {
 
 function appendSpl(val) {
     var txt = display.innerHTML;
-    if(isDigit(txt.charAt(txt.length-1))) {
+    if(isDigit(txt.charAt(txt.length-1)) || txt.charAt(txt.length-1)==')') {
         if(txt == "")
             display.innerHTML += "0";
         display.innerHTML += val;
@@ -87,11 +88,30 @@ function appendSpl(val) {
     isZero = false;
 }
 
+function appendB(val) {
+    if(val == '\(') {
+        if(display.innerHTML == '0')
+            display.innerHTML = display.innerHTML.slice(0,-1);
+        if(isDigit(display.innerHTML.charAt(display.innerHTML.length-1)))
+            display.innerHTML += 'x';
+        display.innerHTML += val;
+        openB++;
+    }
+    else if(openB>0 && val == '\)' && display.innerHTML.charAt(display.innerHTML.length-1) != '(') {
+        display.innerHTML += val;
+        openB--;
+    }
+}
+
 function back() {
     if(isResult) {
         isResult = false;
         display.innerHTML = "0";
     }
+    if(display.innerHTML.charAt(display.innerHTML.length-1) == '(')
+        openB--;
+    else if(display.innerHTML.charAt(display.innerHTML.length-1) == ')')
+        openB++;
     var txt = display.innerHTML;
     txt = txt.slice(0,-1);
     if(txt == "") {
@@ -105,17 +125,20 @@ function clearAll() {
     display.innerHTML = "0";
     isDot = false;
     isZero = false;
+    openB = 0;
 }
  
-function solve() {
-    var numin = display.innerHTML;
-    if(!isDigit(numin.charAt(numin.length-1)))
-        numin = numin.slice(0,-1);
-    numin = numin.replace('x','*');
-    numin = numin.replace('÷','/');
-    display.innerHTML = round(eval(numin),5);
-    isDot = false;
-    isResult = true;
+function solve(num) {
+    if(openB == 0) {
+        var numin = display.innerHTML;
+        if((!isDigit(numin.charAt(numin.length-1))) && numin.charAt(numin.length-1) != ')')
+            numin = numin.slice(0,-1);
+        numin = numin.replaceAll('x','*');
+        numin = numin.replaceAll('÷','/');
+        display.innerHTML = round(eval(numin),5)*num;
+        isDot = false;
+        isResult = true;
+    }
 }
 
 function logKey(e) {
@@ -139,10 +162,16 @@ function logKey(e) {
             break;
         case 61:
         case 13:
-            solve();
+            solve(1);
             break;
         case 46:
             append(".");
+            break;
+        case 40:
+            appendB('\(');
+            break;
+        case 41:
+            appendB('\)');
     }
 }
   
@@ -162,4 +191,9 @@ function isDigit(val) {
     if(val >= '0' && val <= '9')
         return true;
     return false;
+}
+
+function replaceAll(str1,str2) {
+    while(str1.includes(str2))
+        str1.replace(str2);
 }

@@ -18,11 +18,14 @@
 		<h1>Calculator</h1>
         <table class="form">
         <tr class="numin">
-            <td colspan="5">
+            <td colspan="6">
                 <div id="numin">0</div>
             </td>
         </tr>
         <tr class="button">
+            <td onclick="swapmode()" title="Change Theme">
+                <i class="fas fa-adjust"></i>
+            </td>
             <td onclick="append('7')">7</td>
             <td onclick="append('8')">8</td>
             <td onclick="append('9')">9</td>
@@ -32,35 +35,35 @@
             <td onclick="clearAll()"><b>C</b></td>
         </tr>
         <tr class="button">
+            <td onclick="appendB('\(')"><b>(</b></td>
             <td onclick="append('4')">4</td>
             <td onclick="append('5')">5</td>
             <td onclick="append('6')">6</td>
+            <td rowspan="2" onclick="appendSpl('+')">
+                <i class="fas fa-plus"></i>
+            </td>
             <td onclick="appendSpl('-')">
                 <i class="fas fa-minus"></i>
             </td>
+        </tr>
+        <tr class="button">
+            <td onclick="appendB('\)')"><b>)</b></td>
+            <td onclick="append('1')">1</td>
+            <td onclick="append('2')">2</td>
+            <td onclick="append('3')">3</td>
             <td onclick="appendSpl('x')">
                 <i class="fas fa-times"></i>
             </td>
         </tr>
         <tr class="button">
-            <td onclick="append('1')">1</td>
-            <td onclick="append('2')">2</td>
-            <td onclick="append('3')">3</td>
-            <td onclick="appendSpl('+')">
-                <i class="fas fa-plus"></i>
+            <td onclick="solve(-1)"><b>±</b></td>
+            <td onclick="append('.')">.</td>
+            <td onclick="append('0')">0</td>
+            <td style="width: 100px;" onclick="solve(1)" colspan="2">
+                <i class="fas fa-equals"></i>
             </td>
             <td onclick="appendSpl('÷')">
                 <i class="fas fa-divide"></i>
-            </td>
-        </tr>
-        <tr class="button">
-            <td onclick="swapmode()" title="Change Theme">
-                <i class="fas fa-adjust"></i>
-            </td>
-            <td onclick="append('0')">0</td>
-            <td onclick="append('.')">.</td>
-            <td id="solve" onclick="solve()" colspan="2">
-                <i class="fas fa-equals"></i>
             </td>
         </tr>
 	</table>

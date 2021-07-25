@@ -31,9 +31,6 @@ body {
 .button td i {
   font-size: 25px;
 }
-#solve {
-  width : 100px;
-}
 .button td:hover{
   background-color: var(--hover-background);
   transition: 350ms;
