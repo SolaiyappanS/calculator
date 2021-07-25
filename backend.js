@@ -1,6 +1,7 @@
 var count = 0;
 var element = document.body;
 var isDot = false;
+var isZero = false;
 var isResult = false;
 var display = document.getElementById("numin");
 document.addEventListener('keypress', logKey);
@@ -36,19 +37,28 @@ function append(val) {
         isResult = false;
     }
     else if(display.innerHTML.length <12) {
-        if(val == '.')
+        if(val == '.') {
             if(!isDot) {
                 isDot = true;
                 if (isDigit(display.innerHTML.charAt(display.innerHTML.length-1)))
                     display.innerHTML += '.';
                 else
                     display.innerHTML += '0.';
+                isZero = true;
             }
-            else;
-        else if(display.innerHTML == '0')
-            display.innerHTML = val;
-        else 
-            display.innerHTML += val;
+        }
+        else if(val == '0') {
+            if(isZero) {
+                display.innerHTML += val;
+            }
+        }
+        else {
+            if(display.innerHTML == '0')
+                display.innerHTML = val;
+            else 
+                display.innerHTML += val;
+            isZero = true;
+        }
     }
     else 
         alert("No more digits are allowed");
@@ -74,6 +84,7 @@ function appendSpl(val) {
         isDot = false;
         isResult = false;
     }
+    isZero = false;
 }
 
 function back() {
@@ -93,12 +104,15 @@ function back() {
 function clearAll() {
     display.innerHTML = "0";
     isDot = false;
+    isZero = false;
 }
  
 function solve() {
     var numin = display.innerHTML;
     if(!isDigit(numin.charAt(numin.length-1)))
-    numin = numin.slice(0,-1);
+        numin = numin.slice(0,-1);
+    numin = numin.replace('x','*');
+    numin = numin.replace('÷','/');
     display.innerHTML = round(eval(numin),5);
     isDot = false;
     isResult = true;
@@ -118,10 +132,10 @@ function logKey(e) {
             appendSpl("-");
             break;
         case 42:
-            appendSpl("*");
+            appendSpl("x");
             break;
         case 47:
-            appendSpl("/");
+            appendSpl("÷");
             break;
         case 61:
         case 13:
