@@ -74,7 +74,7 @@ function appendSpl(val) {
         isDot = false;
         isResult = false;
     }
-    else if("+-*/".includes(txt.charAt(txt.length-1))){
+    else if("+-x÷".includes(txt.charAt(txt.length-1))){
         txt = txt.slice(0,-1);
         txt += val;
         display.innerHTML = txt;
