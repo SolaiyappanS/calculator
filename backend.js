@@ -97,8 +97,11 @@ function appendB(val) {
             display.innerHTML += 'x';
         display.innerHTML += val;
         openB++;
+        isResult = false;
     }
-    else if(openB>0 && val == '\)' && display.innerHTML.charAt(display.innerHTML.length-1) != '(') {
+    else if(openB>0 && val == '\)'
+        &&(isDigit(display.innerHTML.charAt(display.innerHTML.length-1))
+        || display.innerHTML.charAt(display.innerHTML.length-1) == ')')) {
         display.innerHTML += val;
         openB--;
     }
