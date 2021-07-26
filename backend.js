@@ -92,7 +92,8 @@ function appendB(val) {
     if(val == '\(') {
         if(display.innerHTML == '0')
             display.innerHTML = display.innerHTML.slice(0,-1);
-        if(isDigit(display.innerHTML.charAt(display.innerHTML.length-1)))
+        if(isDigit(display.innerHTML.charAt(display.innerHTML.length-1))
+        || display.innerHTML.charAt(display.innerHTML.length-1) == ')')
             display.innerHTML += 'x';
         display.innerHTML += val;
         openB++;

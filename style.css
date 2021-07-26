@@ -43,8 +43,8 @@ p a:hover {
   text-decoration: underline;
 }
 .red {
-  --accent-color: #e24156;
-  --gradient-color: #fa424b;
+  --accent-color: #be4152;
+  --gradient-color: #b1373d;
 }
 .green {
   --accent-color: #267d49;
