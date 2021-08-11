@@ -3,37 +3,41 @@ body {
   --accent-color: #2d2d2d;
   --gradient-color: #303030;
   --primary-color: #ffffff;
-  --hover-background: #ffffff33;
+  --hover-background: #fff3;
 }
 .container {
   color: var(--primary-color);
 }
-.numin{
-  border: 1px solid #ffffff33;
+table, th, td {
+  border: 0.1px solid #fffe;
+  cursor: auto;
+}
+#numin {
   text-align: right;
   color: var(--primary-color);
-}
-.numin div {
   font-size: 40px;
-  padding-top: 25px;
-  padding-right: 10px;
+  padding-top: 30px;
+  padding-right: 15px;
 }
-.button td {
-  border: 1px solid #ffffff33;
+#numin:hover{
+  background-color: #0000;
+}
+td {
   color: var(--primary-color);
-  transition: 350ms;
   width: 50px;
   padding: 10px;
   font-size: 30px;
   text-align: center;
-  cursor: pointer;
+  cursor: default;
 }
-.button td i {
+.number {
+  background-color: #fff1;
+}
+td i {
   font-size: 25px;
 }
-.button td:hover{
+td:hover{
   background-color: var(--hover-background);
-  transition: 350ms;
 }
 p a {
   color: var(--primary-color);
@@ -47,8 +51,8 @@ p a:hover {
   --gradient-color: #b1373d;
 }
 .green {
-  --accent-color: #267d49;
-  --gradient-color: #43975d;
+  --accent-color: #21693e;
+  --gradient-color: #275f39;
 }
 .blue {
   --accent-color: #004e9a;

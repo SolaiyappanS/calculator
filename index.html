@@ -11,34 +11,34 @@
 
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <title>Calculator</title>
+    sudo apt install libatlas3-base libsz2 libharfbuzz0b libtiff5 libjasper1 libilmbase12 libopenexr22 libilmbase12 libgstreamer1.0-0 libavcodec57 libavformat57 libavutil55 libswscale4 libqtgui4 libqt4-test libqtcore4
+
   </head>
   <body>
     <div class="wrapper">
 	<div class="container">	<center><br><p>Developed by <a href="https://www.linkedin.com/in/solaiyappan-shanmuganathan-2a89121b3/">Solaiyappan Shanmuganathan</a></p>
 		<h1>Calculator</h1>
         <table class="form">
-        <tr class="numin">
-            <td colspan="6">
-                <div id="numin">0</div>
-            </td>
+        <tr>
+            <td  class="numin" colspan="6" id = "numin">0</td>
         </tr>
-        <tr class="button">
+        <tr>
             <td onclick="swapmode()" title="Change Theme">
                 <i class="fas fa-adjust"></i>
             </td>
-            <td onclick="append('7')">7</td>
-            <td onclick="append('8')">8</td>
-            <td onclick="append('9')">9</td>
+            <td class="number" onclick="append('7')">7</td>
+            <td class="number" onclick="append('8')">8</td>
+            <td class="number" onclick="append('9')">9</td>
             <td onclick="back()">
                 <i class="fas fa-backspace"></i>
             </td>
             <td onclick="clearAll()"><b>C</b></td>
         </tr>
-        <tr class="button">
+        <tr>
             <td onclick="appendB('\(')"><b>(</b></td>
-            <td onclick="append('4')">4</td>
-            <td onclick="append('5')">5</td>
-            <td onclick="append('6')">6</td>
+            <td class="number" onclick="append('4')">4</td>
+            <td class="number" onclick="append('5')">5</td>
+            <td class="number" onclick="append('6')">6</td>
             <td rowspan="2" onclick="appendSpl('+')">
                 <i class="fas fa-plus"></i>
             </td>
@@ -46,11 +46,11 @@
                 <i class="fas fa-minus"></i>
             </td>
         </tr>
-        <tr class="button">
+        <tr>
             <td onclick="appendB('\)')"><b>)</b></td>
-            <td onclick="append('1')">1</td>
-            <td onclick="append('2')">2</td>
-            <td onclick="append('3')">3</td>
+            <td class="number" onclick="append('1')">1</td>
+            <td class="number" onclick="append('2')">2</td>
+            <td class="number" onclick="append('3')">3</td>
             <td onclick="appendSpl('x')">
                 <i class="fas fa-times"></i>
             </td>
@@ -58,7 +58,7 @@
         <tr class="button">
             <td onclick="solve(-1)"><b>±</b></td>
             <td onclick="append('.')">.</td>
-            <td onclick="append('0')">0</td>
+            <td class="number" onclick="append('0')">0</td>
             <td style="width: 100px;" onclick="solve(1)" colspan="2">
                 <i class="fas fa-equals"></i>
             </td>
